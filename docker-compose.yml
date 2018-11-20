@@ -87,7 +87,7 @@ services:
       - telegraf
 
   grafana:
-    image: grafana/grafana:{GRAFANA_TAG}
+    image: grafana/grafana:${GRAFANA_TAG}
     container_name: grafana
     ports:
       - "3000:3000"
@@ -95,8 +95,7 @@ services:
       - influxdb
     volumes:
       # Data persistency
-      # sudo mkdir -p /srv/docker/grafana/data; chown 472:472 /srv/docker/grafana/data
-      - ./grafana/data/:/var/lib/grafana
+      - ./grafana/data/:/var/lib/grafana:Z
 
 
   documentation:

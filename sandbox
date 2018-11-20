@@ -75,6 +75,9 @@ sandbox () {
     up)
       echo "Spinning up Docker Images..."
       echo "If this is your first time starting sandbox this might take a minute..."
+      mkdir -p ./grafana/data/
+      chown -R 472 ./grafana/data/
+      chmod -R 0755 ./grafana/data/
       docker-compose up -d --build
       echo "Opening tabs in browser..."
       sleep 3
